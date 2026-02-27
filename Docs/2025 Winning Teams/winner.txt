@@ -1,0 +1,15 @@
+We filtered out non-D1 games and removed rows with significant missing data. Key statistics were normalized on a per-possession basis. We imputed remaining missing numeric fields using regional medians. This cleaning process ensured data consistency and allowed for fair comparisons across teams with varying numbers of games played.
+
+We created offensive and defensive efficiency metrics, rest advantage calculations, and a logarithmic travel fatigue factor to provide insights into team performance beyond raw statistics.
+
+Python served as our primary programming language. We used pandas for data cleaning and transformation, NumPy for numerical computations, scikit-learn for implementing our Elo rating system and logistic regression model, and Matplotlib for creating visualizations to analyze feature importance and model performance.
+
+GenAI tools: We used ChatGPT for debugging code and automating repetitive text formatting tasks. All methodological decisions, data analysis, and final predictions were conducted solely by our team.
+
+We implemented a modified Elo rating system, incorporating home court advantage (+70 points), a margin of victory multiplier, and rest day adjustments. Win probabilities were calculated using a logistic function based on Elo differences. We employed temporal cross-validation, training on January-February games and testing on March games. Feature importance was assessed using gradient boosted decision trees. Our final model combined the Elo ratings with logistic regression to account for contextual factors like rest days and travel distance. We used confusion matrices and ROC curves to evaluate prediction accuracy and model calibration.
+
+We ranked teams within regions based on their final Elo scores, which were derived from the outcomes of over 5,300 games. These scores were further adjusted for strength of schedule by considering the average Elo rating of each team’s opponents throughout the season.
+
+We determined winning probabilities by combining the Elo rating difference between teams with contextual features such as rest days and travel distance. The final probability was calculated using a logistic function, with adjustments for these additional factors, and then clamped between 0.15 and 0.85 to prevent overconfidence.
+
+We evaluated model performance using temporal cross-validation, splitting training and testing sets chronologically (train: January – February; test: March games). Metrics included accuracy (65.2%), Brier score (0.207), and ROC AUC (0.712). We further validated our predictions through calibration curves, confirming probability alignment, and confusion matrices to assess classification precision and recall.

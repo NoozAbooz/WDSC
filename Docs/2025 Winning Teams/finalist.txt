@@ -1,0 +1,13 @@
+We utilised Google Sheets to conduct our cleaning and transformation. Firstly, we separated data for non-Division 1 teams from all of the CSVs. This allowed us to remove statistics that may cause bias. We substituted N/A values with 0 to make all fields numeric. We calculated the sums and averages for each team. We recreated the advanced statistics found on the NBA website using the formulas also provided on the website. We also created our own variable which was lead retention rate.
+
+Google Sheets was used for all of our data manipulation and visualisation. Python was used for data visualisation and was the language we used to build our machine learning algorithms. ChatGPT was used to write/debug code. TinyTask is software for macros, which we used to quickly finish repetitive manual tasks.
+
+GenAI tools: We used ChatGPT to create models to make up for our lack of technical knowledge. We coded one model manually but decided it was more efficient to use AI tools.
+
+We employed descriptive statistics to analyse team performance using means and other statistics. Using Python we created a scatter matrix alongside Spearman’s analysis to investigate the relationship and correlation between variables. With our findings, we used suitable functions – such as logarithmic and polynomial functions – to transform data and create linear correlations between variables. We recognised the situation posed to us a binary classification problem therefore we concluded as a team that we should adopt machine learning methods as our predictive modelling technique. After thorough research of different classification algorithms, we created multiple different machine learning models with the aid of ChatGPT, using the variables with the strongest correlation as features.
+
+Using a similar approach to the playoff probabilities, we set up data for benchmark teams – a team with the statistics of the average of every team and teams with the statistics of the average in each region. We used the average of the probabilities of winning from the best algorithms to give teams a rank.
+
+Using our various models, we trained the algorithms four times each using random sets of testing and training data, then output their predictions for the playoff games. We selected the eight best performing models to average the results for the final probabilities.
+
+We used three metrics to measure model performance; accuracy, area under curve, and F-score. When we were selecting the best performing models, we predominantly used distance from the mean accuracy, AUC and F-score. The metrics were retrieved using in-built python functions. Our best performing model had metrics of 0.8047, 0.8787, 0.8457 respectively.

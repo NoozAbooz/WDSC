@@ -1,0 +1,33 @@
+Build Complexity: Opponents, Efficiency, and Context
+Stronger models go further by adjusting for context and other potentially meaningful factors, because not all wins are equal. Stronger models began to account for who teams played, not just how often they won. A win over a top-10 team is different than one over a lower-tier opponent. This is where strength of schedule came in, with teams adjusting their models using opponents’ records or building Elo-style rating systems that dynamically responded to wins and losses.
+
+Some submissions also broke down team performance by calculating:
+
+Points scored and allowed per possession – helping normalize stats for pace of play
+Offensive and defensive efficiency – separating scoring ability from overall game outcomes
+Contextual factors like home vs. away games, travel distance, and rest days
+Incorporating these elements into regression models allowed submissions to estimate team strength while controlling for real-world variability. These features can be included as controls in a regression model, and together with our efficiency-based measures for points scored/allowed, we can engineer a regression model to estimate each team’s offensive and defensive strength. 
+
+Assessing Your Predictions: Run Multiple Models
+In data science, no single model presents the whole picture. Each one makes assumptions, highlights certain patterns, and has its own blind spots. An ensemble model combines the predictions of multiple models. Instead of relying on one method, you bring together the strengths of several. One model might be great at picking up trends in point differential, while another does better with contextual variables like home court or rest days. By aggregating diverse predictions, ensembles reduce bias, variance, and overfitting. This approach often outperforms individual models, especially on complex tasks. For example, within the final five submissions in the competition, many employed multiple modeling approaches. 
+
+The Wharton team also took this same approach, using an ensemble model to benchmark performance. Interestingly, the team’s ensemble model matched very well with the ensemble of all submitted models.
+
+Some submissions also broke down team performance by calculating:
+
+Points scored and allowed per possession – helping normalize stats for pace of play
+Offensive and defensive efficiency – separating scoring ability from overall game outcomes
+Contextual factors like home vs. away games, travel distance, and rest days
+Incorporating these elements into regression models allowed submissions to estimate team strength while controlling for real-world variability. These features can be included as controls in a regression model, and together with our efficiency-based measures for points scored/allowed, we can engineer a regression model to estimate each team’s offensive and defensive strength. 
+
+Here’s what stood out when we analyzed the 362 Phase 1 submissions (using a model of models):
+
+Elo models were widely used and effective – 5 of the 25 semi-finalists used some sort of elo model.
+Elo models that incorporated Margin of Victory (Mov) did especially well.
+Elo models were not as susceptible to the ‘undefeated’ D2 teams, because of how they score multiple games across a season.
+XGBoost performed fairly well for submissions.
+Regression models were widely used, and submissions that included regression models did well.
+Some machine learning approaches largely did not perform well for submissions. These models are more challenging to interpret and can go wrong more easily.
+Random Forest models did poorly for most submissions.
+Some machine learning models can go wrong easily; some ranked ‘undefeated’ D2 teams.
+However, the 2nd place team also used machine learning approaches – understanding how to assess these models is key.

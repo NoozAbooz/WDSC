@@ -35,7 +35,7 @@ isProject: false
   - `[Docs/2025 Winning Teams/advice.txt](Docs/2025 Winning Teams/advice.txt)`
   - `[Docs/2025 Winning Teams/winner.txt](Docs/2025 Winning Teams/winner.txt)`
   - `[Docs/2025 Winning Teams/finalist.txt](Docs/2025 Winning Teams/finalist.txt)`
-- **Tournament matchups**: `WHSDSC_Rnd1_matchups.xlsx` (16 first-round games and their home/away teams; assumed to live alongside your main data, e.g., `[Docs/WHSDSC_Rnd1_matchups.xlsx](Docs/WHSDSC_Rnd1_matchups.xlsx)` if stored in `Docs/`).
+- **Round 1 matchups**: `WHSDSC_Rnd1_matchups.xlsx` (16 tournament games with home/away teams to predict).
 
 ## Deliverables for Phase 1a
 
@@ -48,7 +48,7 @@ isProject: false
 - **Game outcome** is computed by summing `home_goals` / `away_goals` across `record_id` within each `game_id`.
 - **OT handling**: `went_ot==1` implies overtime; standings points will default to standard hockey points (**2 win, 1 OT loss, 0 regulation loss**). If your module specifies a different points system, we’ll swap it.
 - **Chronology for validation**: if no dates exist, we’ll order games by numeric part of `game_id` (e.g., `game_100` → 100) for time-based splits.
-- **Matchups input**: we will read the official first-round pairings directly from `WHSDSC_Rnd1_matchups.xlsx` (16 rows, with at least `home_team` and `away_team`, and optionally `game_id`/region columns).
+- **Matchups input**: we will read `WHSDSC_Rnd1_matchups.xlsx` (sheet with 16 rows, one per game) containing at least `home_team` and `away_team` columns (and any IDs/dates the contest provides). All prediction programs will take this file as the canonical source of the 16 matchups and output home-win probabilities aligned row-wise to this sheet.
 
 ## Common data engineering (shared by every approach)
 
